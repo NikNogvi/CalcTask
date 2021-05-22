@@ -2,7 +2,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 import java.util.List;
 import java.util.stream.Stream;
-
+//Задание калькулятор
 public class CalcTask {
     public static void main(String[] args) {
         Operation calculation = new Operation();//объкт Класс для вызова функции, которая производит операции вычисления
