@@ -2,6 +2,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 import java.util.List;
 import java.util.stream.Stream;
+
 //Задание калькулятор
 public class CalcTask {
     public static void main(String[] args) {
@@ -20,11 +21,17 @@ public class CalcTask {
 
         String[] strSplit = enter.split(" "); // Режу строку на все значения, кроме проблов и они получают индекс
 
-        // boolean isArab = strSplit[0].matches("^([1-9]|1[0])$");  // Провеяем какой вид числа, если true, то это число арабское
-        if (strSplit.length!=3) {
-            System.out.println("Пропущены пробелы");
-            System.exit(0);
-        }
+        int countSpace=0;
+        for (char element : enter.toCharArray()){
+            if (element == ' '){
+                countSpace++;
+                if(countSpace>2){
+                    System.out.println("Лишние пробелы");
+                    System.exit(0);
+                }
+            }
+        }// Если пробелов многовато
+
         boolean isArab = strSplit[0].matches( "(?<numbers>[0-9]+)");
         //boolean isArabMatch = strSplit[2].matches("^([1-9]|1[0])$");
         boolean isArabMatch = strSplit[2].matches("(?<numbers>[0-9]+)");
