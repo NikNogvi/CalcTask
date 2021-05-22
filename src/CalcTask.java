@@ -19,18 +19,9 @@ public class CalcTask {
         Scanner sc = new Scanner(System.in);
         String enter = sc.nextLine();
 
-        String[] strSplit = enter.split(" "); // Режу строку на все значения, кроме проблов и они получают индекс
+        error.IsErrorSpace(enter);
 
-        int countSpace=0;
-        for (char element : enter.toCharArray()){
-            if (element == ' '){
-                countSpace++;
-                if(countSpace>2){
-                    System.out.println("Лишние пробелы");
-                    System.exit(0);
-                }
-            }
-        }// Если пробелов многовато
+        String[] strSplit = enter.split(" "); // Режу строку на все значения, кроме проблов и они получают индекс
 
         boolean isArab = strSplit[0].matches( "(?<numbers>[0-9]+)");
         //boolean isArabMatch = strSplit[2].matches("^([1-9]|1[0])$");
@@ -58,7 +49,9 @@ public class CalcTask {
         int[] arab = new int[] { 1, 4, 5, 9, 10, 40, 50, 90, 100};
 
         String resultRome = rta.isRomeToArabe(result,isRome,arab,romans); // Метод, выводящий результат римскими цифрами + при отрицательном значении добавляет минус к римскому результату
+
         boolean MINUS = rta.MINUS; // возвращаем минус или не минус, для понимания отрицательный ответ или нет
+
         output.output(isArab,isRome,result,MINUS,resultRome);// Ответ
 
     }
