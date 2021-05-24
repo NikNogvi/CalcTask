@@ -2,18 +2,19 @@
 public class Error {
 
     public void IsErrorSpace (String enter) {
-        int countSpace=0;
-        for (char element : enter.toCharArray()){
-            if (element == ' '){
+        int countSpace = 0;
+        char[] space = enter.toCharArray();
+        for (int i = 1; i < enter.length(); i++) {
+            if (space[i]==' ') {
                 countSpace++;
-                if(countSpace>2){
-                    System.out.println("Лишние пробелы");
-                    System.exit(0);
-                } else if (countSpace<2) {
-                    System.out.println("Недостает пробелов");
-                    System.exit(0);
-                }
             }
+        }
+        if (countSpace>2){
+            System.out.println("Лишние пробелы");
+            System.exit(0);
+        } else if (countSpace<2) {
+            System.out.println("Недостает пробелов");
+            System.exit(0);
         }
         // Если пробелов многовато
     }
